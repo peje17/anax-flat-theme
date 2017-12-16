@@ -1,0 +1,172 @@
+/**
+* Grid based layout
+*/
+
+
+@import 'grid-float.less';
+
+// Typographic grid
+@import 'typography.less';
+
+//@import 'grid-flex.less';
+@gridImage : "../img/grid940x12x60x20-nomargin.png";
+
+    //.showGrid(960px);
+html.vgrid .inner-wrap {
+    .showGrid(960px, @gridImage);
+    &.inner-wrap-header {
+    .showGrid(960px, @gridImage);
+    }
+}
+
+body.route-grid {
+    .inner-wrap {
+        @gridWith : 960px;
+        .grid(@gridWith);
+        .showGrid(@gridWith, @gridImage );
+    }    //max-width: 960px;
+    .logo-1 {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+    }
+    .site-logo-text {
+        .column(3);
+    }
+    .navbar {
+        .column(9);
+    }
+    .flash-wrap {
+        .column(@columns);
+    }
+    .breadcrumb-wrap {
+        .column(@columns);
+    }
+    .sidebar {
+        .column(@columns / 3);
+        background-color: green;
+        opacity: 0.2;
+    }
+    .main {
+        .column(@columns * 2 / 3);
+        background-color: blue;
+        opacity: 0.2;
+    }
+    .footer-column {
+        .column(@columns / 3);
+        background-color: yellow;
+        opacity: 0.2;
+    }
+    @media screen and (max-width: 680px) {
+        .footer-column, .main, .sidebar  {
+            .column(@columns);
+        }
+    }
+    .site-footer {
+        .column(@columns);
+        text-align: center;
+        background-color: lightgray;
+        opacity: 0.1;
+    }
+}
+
+
+
+html.hgrid body {
+    @gridImage : "../img/horisontal-grid-24.png";
+    background-image: url("@{gridImage}") ;
+    background-repeat: repeat;
+}
+
+
+
+body.route-typografi {
+    //.wrap-all {
+        @gridImage : "../img/horisontal-grid-24.png";
+        background-image: url("@{gridImage}") ;
+        background-repeat: repeat;
+        //background: url("@{gridImage}") repeat-x fixed center center;
+        //background-size: 100% auto;
+    //}
+    p {
+        .font();
+        line-height: 1.50;
+    }
+
+
+    .outer-wrap-header {
+        height: (@magicNumber * 3);
+    }
+    .outer-wrap-flash {
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+    .outer-wrap-breadcrumb {
+        //line-height: 1.06px;
+        //.fontSize(0.75em);
+        //height: (@magicNumber * 1);
+    }
+
+    h1 {
+        .fontSize(@fontSizeH1);
+        font-weight: normal;
+
+        border-bottom: @borderSizeH1 solid @colorH1BorderBottom;
+        margin-bottom: @magicNumber - @borderSizeH1;
+        // If header below h1, then assume larger margin top
+        & ~ h1,
+        & ~ h2,
+        & ~ h3,
+        & ~ h4,
+        & ~ h5,
+        & ~ h6,
+         {
+            margin-top: @magicNumber * 2;
+        }
+        & + h2 {
+            margin-top: @magicNumber;
+
+        }
+    }
+
+    h2 {
+    .fontSize(@fontSizeH2);
+    border-bottom: @borderSizeH1 solid @colorH1BorderBottom;
+    margin-bottom: @magicNumber - @borderSizeH1;
+    }
+    h3 {
+    .fontSize(@fontSizeH3);
+    }
+    h4 {
+    .fontSize(@fontSizeH4);
+    }
+    h5 {
+    .fontSize(@fontSizeH5);
+    }
+    h6 {
+    .fontSize(@fontSizeH6);
+    }
+    h1, h2, h3, h4, h5, h6 {
+    margin-top: @magicNumber - 1;
+    margin-bottom: @magicNumber ;
+    color: #44567B;
+    font-weight: bold;
+    font-family: @fontFamilyHeadings;
+    }
+
+    table {
+        font-family: @fontFamilyMonospace;
+        line-height: 1.30;
+    }
+
+    footer-column-wrapper {
+        height: 184px;
+        line-height: inherit;
+    }
+
+    site-footer {
+        & ul {
+            line-height: 1.50;
+        }
+    }
+}
