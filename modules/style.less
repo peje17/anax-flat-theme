@@ -1,7 +1,6 @@
 /**
 * Anax Flat theme.
 */
-
 @import url(modules.less);
 
 
@@ -62,8 +61,7 @@ img {
         width: 100%;
     }
     .rm-navbar-max {
-        display: inline;
-        background-color: red;
+        display: block;
     }
 }
 
@@ -72,7 +70,6 @@ img {
 */
 @body-background-color:   white;
 @wrapall-background-color:   white;
-@wrapall-color:   black;
 @header-background-color:   white;
 @footer-background-color:   white;
 @navigation-background-color:   #44567B;
@@ -82,11 +79,8 @@ body {
 
 .wrap-all {
     background-color: @wrapall-background-color;
-    color: @wrapall-color;
 }
-.outer-wrap-main {
-    padding: 1em;
-}
+
 .outer-wrap-header  {
     background-color: @header-background-color;
 }
@@ -96,16 +90,4 @@ body {
 }
 .rm-desktop li a {
     background-color: @navigation-background-color;
-}
-
-.colorscheme {
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-}
-.screendump {
-    margin: 10px;
-    max-width: 600px;
-    border: 2px solid black;
-    box-shadow: 5px -5px lightgray;
 }
